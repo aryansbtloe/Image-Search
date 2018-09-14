@@ -1,29 +1,53 @@
 //
-//  ImagesViewModel.swift
+//  TSImagesViewModel.swift
 //  Image Search
 //
 //  Created by Alok Singh on 13/09/18.
-//  Copyright © 2018 T-System. All rights reserved.
 //
+//  This is free and unencumbered software released into the public domain.
+//
+//  Anyone is free to copy, modify, publish, use, compile, sell, or
+//  distribute this software, either in source code form or as a compiled
+//  binary, for any purpose, commercial or non-commercial, and by any
+//  means.
+//
+//  In jurisdictions that recognize copyright laws, the author or authors
+//  of this software dedicate any and all copyright interest in the
+//  software to the public domain. We make this dedication for the benefit
+//  of the public at large and to the detriment of our heirs and
+//  successors. We intend this dedication to be an overt act of
+//  relinquishment in perpetuity of all present and future rights to this
+//  software under copyright law.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+//  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+//  IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+//  OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+//  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
+//
+//  For more information, please refer to <http://unlicense.org>
+
 
 import UIKit
 
-class ImagesViewModel: NSObject {
-    let manager: APIManager
+class TSImagesViewModel: NSObject {
+    let manager: TSServerCommunicationManager
     private var pageNo = 1
     private var totalPageNo = 1
-    private(set) var arrayPhotos = [TSImageModel]()
+    private(set) var images = [TSImageModel]()
     private(set) var cache:NSCache<AnyObject, AnyObject> = NSCache()
     private var searchText = ""
     
-    init(manager: APIManager = APIManager.shared) {
+    init(manager: TSServerCommunicationManager = TSServerCommunicationManager.shared) {
         self.manager = manager
         super.init()
     }
     
     func searchText(text: String,completion:(@escaping (Bool,String) -> Void)) {
         searchText = text
-        arrayPhotos.removeAll()
+        images.removeAll()
         fetchResult(completion: completion)
     }
     
@@ -43,7 +67,7 @@ class ImagesViewModel: NSObject {
                             completion(status,"")
                         }
                         else{
-                            completion(status,APIManager.errorMessage)
+                            completion(status,TSAppConstants.Networking.TSServerCommunicationManager.ErrorMessages.somethingWentWrong)
                         }
                     }
                 case .Failure(let message):
@@ -72,8 +96,8 @@ class ImagesViewModel: NSObject {
         totalPageNo = photos["pages"] as? Int ?? 1
         if let photoArray = photos["photo"] as? [[String:Any]] {
             for photoDict in photoArray {
-                let model = TSImageModel(dict: photoDict)
-                arrayPhotos.append(model)
+                let model = TSImageModel(dictionary: photoDict)
+                images.append(model)
             }
             callback(true)
         }

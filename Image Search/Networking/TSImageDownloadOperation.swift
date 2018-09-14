@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  TSImageDownloadOperation.swift
 //  Image Search
 //
 //  Created by Alok Singh on 13/09/18.
@@ -32,14 +32,42 @@
 
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+/// <#Description#>
+class TSImageDownloadOperation: Operation {
     
-    var window: UIWindow?
+    /// <#Description#>
+    let url : String?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+    /// <#Description#>
+    var completion: ((_ image : UIImage?,_ url: String) -> Void)?
+    
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - url: <#url description#>
+    ///   - completion: <#completion description#>
+    init(url : String, completion : @escaping ((_ image : UIImage?,_ url : String) -> Void)) {
+        self.url = url
+        self.completion = completion
     }
     
+    /// <#Description#>
+    override func main() {
+        if self.isCancelled { return }
+        if let url = self.url {
+            TSServerCommunicationManager.shared.downloadImage(urlString: url) { (result) in
+                DispatchQueue.main.async {
+                    if self.isCancelled { return }
+                    switch result {
+                    case .Success(let image):
+                        if let block = self.completion{
+                            block(image, url)
+                        }
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+    }
 }
-

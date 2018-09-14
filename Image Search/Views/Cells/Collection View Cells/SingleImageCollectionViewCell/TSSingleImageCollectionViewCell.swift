@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  TSSingleImageCollectionViewCell.swift
 //  Image Search
 //
 //  Created by Alok Singh on 13/09/18.
@@ -32,14 +32,23 @@
 
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class TSSingleImageCollectionViewCell: UICollectionViewCell {
     
-    var window: UIWindow?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+    @IBOutlet weak var imageView: UIImageView!
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
     }
     
+    var imageModel:TSImageModel? {
+        didSet {
+            if let imageModel = imageModel {
+                imageView.image = UIImage(named: "placeholder")
+                if let image = imageModel.image {
+                    imageView.setImage(with:image)
+                }
+            }
+        }
+    }
 }
-

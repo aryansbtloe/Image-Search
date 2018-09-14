@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  TSExtensions.swift
 //  Image Search
 //
 //  Created by Alok Singh on 13/09/18.
@@ -32,14 +32,19 @@
 
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+extension Dictionary {
     
-    var window: UIWindow?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - key: <#key description#>
+    ///   - defaultValue: <#defaultValue description#>
+    /// - Returns: <#return value description#>
+    func getStringKey(_ key: Key , defaultValue:String? = nil) -> String? {
+        if let value = self[key] as? String, !value.isEmpty {
+            return value
+        }
+        return defaultValue
     }
     
 }
-

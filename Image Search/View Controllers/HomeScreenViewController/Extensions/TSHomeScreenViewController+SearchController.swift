@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  TSHomeScreenViewController.swift
 //  Image Search
 //
 //  Created by Alok Singh on 13/09/18.
@@ -32,14 +32,26 @@
 
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    var window: UIWindow?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+extension TSHomeScreenViewController: UISearchControllerDelegate,UISearchBarDelegate {    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, text.count > 1 else {
+            return
+        }
+        labelNoResultFound.isHidden = true
+        searchResultsCollectionView.reloadData()
+        imagesViewModel.searchText(text: text) {[weak self] (status, message) in
+            if status {
+                if (self?.imagesViewModel.images.count ?? 0) > 0 {
+                    self?.labelNoResultFound.isHidden = true
+                } else {
+                    self?.labelNoResultFound.isHidden = false
+                }
+                self?.searchResultsCollectionView.reloadData()
+            } else {
+                self?.showAlert(with: message)
+            }
+        }
+        searchController.searchBar.resignFirstResponder()
     }
     
 }
-

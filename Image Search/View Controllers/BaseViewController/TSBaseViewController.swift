@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  TSBaseViewController.swift
 //  Image Search
 //
 //  Created by Alok Singh on 13/09/18.
@@ -32,14 +32,43 @@
 
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+/// <#Description#>
+class TSBaseViewController: UIViewController {
     
-    var window: UIWindow?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+    /// <#Description#>
+    ///
+    /// - Parameter text: <#text description#>
+    func showAlert(with text:String?) {
+        DispatchQueue.main.async {
+            guard let alertText = text else {return}
+            let alertController = UIAlertController(title: "Info", message: alertText, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction) in
+            }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
+    /// <#Description#>
+    ///
+    /// - Returns: <#return value description#>
+    func storyBoard()->UIStoryboard {
+        return UIStoryboard(name: "Main", bundle: nil)
+    }
+    
+    
+    /// <#Description#>
+    ///
+    /// - Parameter identifier: <#identifier description#>
+    /// - Returns: <#return value description#>
+    func viewControllerObject(identifier:String) -> UIViewController {
+        return storyBoard().instantiateViewController(withIdentifier:identifier)
+    }
+    
+    deinit {
+        #if DEBUG
+            print("deinit: \(self)")
+        #endif
+    }
 }
 

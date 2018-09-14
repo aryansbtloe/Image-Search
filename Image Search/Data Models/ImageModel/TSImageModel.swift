@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  TSImageModel.swift
 //  Image Search
 //
 //  Created by Alok Singh on 13/09/18.
@@ -32,14 +32,35 @@
 
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+struct TSImageModel {
     
-    var window: UIWindow?
+    let id : String?
+    let farm: Int?
+    let server: String?
+    let secret: String?
+    let title: String?
+    let image: String?
+    let largeSizeimage: String?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+    /// <#Description#>
+    ///
+    /// - Parameter dictionary: <#dictionary description#>
+    init(dictionary: [String:Any]) {
+        
+        id = dictionary.getStringKey("id")
+        farm = dictionary["farm"] as? Int ?? 1
+        server = dictionary.getStringKey("server")
+        secret = dictionary.getStringKey("secret")
+        title = dictionary.getStringKey("title")
+
+        if let farm = farm , let server = server, let id = id, let secret = secret {
+            image = String(format: TSAppConstants.Networking.Flicker.imageURL, farm,server,id,secret,TSAppConstants.Networking.Flicker.thumbnail)
+            largeSizeimage = String(format: TSAppConstants.Networking.Flicker.imageURL, farm,server,id,secret,TSAppConstants.Networking.Flicker.medium)
+        }else{
+            image = nil
+            largeSizeimage = nil
+        }
+        
     }
     
 }
-

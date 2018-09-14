@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="y0d-xo-SiF" customClass="SingleImageCollectionViewCell" customModule="Image_Search">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="y0d-xo-SiF" userLabel="TSSingleImageCollectionViewCell" customClass="TSSingleImageCollectionViewCell" customModule="Image_Search">
             <rect key="frame" x="0.0" y="0.0" width="375" height="291"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gmc-FP-emj">
-                        <rect key="frame" x="4" y="4" width="371" height="287"/>
+                        <rect key="frame" x="2" y="2" width="371" height="287"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="8"/>
@@ -31,15 +31,15 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Gmc-FP-emj" secondAttribute="bottom" id="8Gh-f1-g5g"/>
-                <constraint firstItem="Gmc-FP-emj" firstAttribute="leading" secondItem="y0d-xo-SiF" secondAttribute="leading" constant="4" id="94g-Ej-foI"/>
-                <constraint firstItem="Gmc-FP-emj" firstAttribute="top" secondItem="y0d-xo-SiF" secondAttribute="top" constant="4" id="bnQ-NE-noL"/>
-                <constraint firstAttribute="trailing" secondItem="Gmc-FP-emj" secondAttribute="trailing" id="lOt-fM-cX2"/>
+                <constraint firstAttribute="bottom" secondItem="Gmc-FP-emj" secondAttribute="bottom" constant="2" id="8Gh-f1-g5g"/>
+                <constraint firstItem="Gmc-FP-emj" firstAttribute="leading" secondItem="y0d-xo-SiF" secondAttribute="leading" constant="2" id="94g-Ej-foI"/>
+                <constraint firstItem="Gmc-FP-emj" firstAttribute="top" secondItem="y0d-xo-SiF" secondAttribute="top" constant="2" id="bnQ-NE-noL"/>
+                <constraint firstAttribute="trailing" secondItem="Gmc-FP-emj" secondAttribute="trailing" constant="2" id="lOt-fM-cX2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="1QF-Rr-cYw"/>
             <size key="customSize" width="375" height="291"/>
             <connections>
-                <outlet property="photoImage" destination="Gmc-FP-emj" id="Tbj-Zr-vB8"/>
+                <outlet property="imageView" destination="Gmc-FP-emj" id="Tbj-Zr-vB8"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="108.5"/>
         </collectionViewCell>

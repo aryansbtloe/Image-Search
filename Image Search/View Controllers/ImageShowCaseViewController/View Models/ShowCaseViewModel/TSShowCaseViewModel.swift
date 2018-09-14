@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  ShowCaseViewModel.swift
 //  Image Search
 //
 //  Created by Alok Singh on 13/09/18.
@@ -32,14 +32,9 @@
 
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    var window: UIWindow?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+class TSShowCaseViewModel:NSObject {
+    let model:TSImageModel
+    init(model:TSImageModel) {
+        self.model = model
     }
-    
 }
-

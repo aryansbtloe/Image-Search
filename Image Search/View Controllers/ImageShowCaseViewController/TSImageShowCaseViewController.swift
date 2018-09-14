@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  ImageShowCaseViewController.swift
 //  Image Search
 //
 //  Created by Alok Singh on 13/09/18.
@@ -29,17 +29,35 @@
 //
 //  For more information, please refer to <http://unlicense.org>
 
-
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class TSImageShowCaseViewController : TSBaseViewController {
+
+    @IBOutlet weak var imageView: UIImageView!
+    var viewModel: TSShowCaseViewModel!
     
-    var window: UIWindow?
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationItem.title = viewModel.model.title
+    }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let imageUrl = viewModel.model.largeSizeimage {
+            imageView.setImage(with:imageUrl)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
     }
     
 }
-

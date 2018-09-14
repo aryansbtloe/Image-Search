@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  TSHomeScreenViewController.swift
 //  Image Search
 //
 //  Created by Alok Singh on 13/09/18.
@@ -30,16 +30,25 @@
 //  For more information, please refer to <http://unlicense.org>
 
 
+
 import UIKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+extension TSHomeScreenViewController: UINavigationControllerDelegate{
     
-    var window: UIWindow?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        return true
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        guard let frame = self.selectedFrame else { return nil }
+        guard let selectedImage = selectedImage else { return nil}
+        
+        switch operation {
+        case .push:
+            return TSImageToShowCaseAnimator(duration: TimeInterval(UINavigationControllerHideShowBarDuration), isPresenting: true, originFrame: frame, image: selectedImage)
+        default:
+            return TSImageToShowCaseAnimator(duration: TimeInterval(UINavigationControllerHideShowBarDuration), isPresenting: false, originFrame: frame, image: selectedImage)
+        }
+        
     }
     
 }
+
 
