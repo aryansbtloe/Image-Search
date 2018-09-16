@@ -106,4 +106,10 @@ enum TSAppConstants {
         
     }
 
+    enum General {
+        
+        static let placeHolderImage = #imageLiteral(resourceName: "placeHolder")
+        
+    }
+
 }

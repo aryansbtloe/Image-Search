@@ -33,7 +33,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class TSAppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     

@@ -22,7 +22,7 @@
 		6977062B214AB79700B2519B /* TSSingleImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69770627214AB79700B2519B /* TSSingleImageCollectionViewCell.swift */; };
 		6977062C214AB79700B2519B /* TSImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6977062A214AB79700B2519B /* TSImagesViewModel.swift */; };
 		69770636214AC11700B2519B /* TSSingleImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69770635214AC11700B2519B /* TSSingleImageCollectionViewCell.xib */; };
-		69AA81A6214A9A5F00D82771 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AA81A5214A9A5F00D82771 /* AppDelegate.swift */; };
+		69AA81A6214A9A5F00D82771 /* TSAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AA81A5214A9A5F00D82771 /* TSAppDelegate.swift */; };
 		69AA81AB214A9A5F00D82771 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69AA81A9214A9A5F00D82771 /* Main.storyboard */; };
 		69AA81AD214A9A6000D82771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69AA81AC214A9A6000D82771 /* Assets.xcassets */; };
 		69AA81B0214A9A6000D82771 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69AA81AE214A9A6000D82771 /* LaunchScreen.storyboard */; };
@@ -48,7 +48,7 @@
 		6977062A214AB79700B2519B /* TSImagesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSImagesViewModel.swift; sourceTree = "<group>"; };
 		69770635214AC11700B2519B /* TSSingleImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSSingleImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		69AA81A2214A9A5F00D82771 /* Image Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Image Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69AA81A5214A9A5F00D82771 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		69AA81A5214A9A5F00D82771 /* TSAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSAppDelegate.swift; sourceTree = "<group>"; };
 		69AA81AA214A9A5F00D82771 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69AA81AC214A9A6000D82771 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69AA81AF214A9A6000D82771 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 		6977062D214AB7D500B2519B /* Application Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				69AA81A5214A9A5F00D82771 /* AppDelegate.swift */,
+				69AA81A5214A9A5F00D82771 /* TSAppDelegate.swift */,
 			);
 			path = "Application Delegate";
 			sourceTree = "<group>";
@@ -433,7 +433,7 @@
 				6977062C214AB79700B2519B /* TSImagesViewModel.swift in Sources */,
 				6977060F214AA9A800B2519B /* TSHomeScreenViewController+CollectionView.swift in Sources */,
 				6977061B214AB02D00B2519B /* TSAppConstants.swift in Sources */,
-				69AA81A6214A9A5F00D82771 /* AppDelegate.swift in Sources */,
+				69AA81A6214A9A5F00D82771 /* TSAppDelegate.swift in Sources */,
 				697705F8214AA78100B2519B /* TSBaseViewController.swift in Sources */,
 				69770610214AA9A800B2519B /* TSHomeScreenViewController+SearchController.swift in Sources */,
 				697705FE214AA85100B2519B /* TSImageToShowCaseAnimator.swift in Sources */,

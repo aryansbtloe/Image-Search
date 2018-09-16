@@ -44,6 +44,7 @@ class TSSingleImageCollectionViewCell: UICollectionViewCell {
     var imageModel:TSImageModel? {
         didSet {
             if let imageModel = imageModel {
+                imageView.image = TSAppConstants.General.placeHolderImage
                 if let image = imageModel.image {
                     imageView.setImage(with:image)
                 }
