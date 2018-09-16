@@ -60,7 +60,8 @@ enum TSAppConstants {
     enum Networking {
         
         enum Flicker {
-
+            
+            //#WARNING: In case you decide to use this code , please use your own api key
             static let apiKey = "81ccf620d4253ae470c626b22ad45ea9"
             static let imageURL = "https://farm%d.staticflickr.com/%@/%@_%@_%@.jpg"
             static let thumbnail = "t"
@@ -82,9 +83,27 @@ enum TSAppConstants {
     }
     
     enum Tags {
-    
+        
         static let showCaseViewTag = 123
         static let activityIndicatorViewTag = 123456
+        
+    }
+    
+    enum Alerts {
+        
+        enum HowManyImagesToShowInARow {
+            
+            static let title = "View Setting"
+            static let message = "How many images would you like to show in a row ?"
+            
+        }
 
     }
+    
+    enum ImageDownloader {
+        
+        static let maxConcurrentOperationCount = 99
+        
+    }
+
 }

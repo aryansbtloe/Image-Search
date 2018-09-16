@@ -39,11 +39,11 @@ class TSImageDownloader: NSObject {
     
     static let shared = TSImageDownloader()
     private(set) var cache:NSCache<AnyObject, AnyObject> = NSCache()
-    private var operationQueue = OperationQueue()
+    private var queue = OperationQueue()
     private var dictionaryBlocks = [UIImageView:(String, TSImageClosure, TSImageDownloadOperation)]()
     
     private override init() {
-        operationQueue.maxConcurrentOperationCount = 100
+        queue.maxConcurrentOperationCount = TSAppConstants.ImageDownloader.maxConcurrentOperationCount
     }
     
     func addOperation(url: String, imageView: UIImageView,completion: @escaping TSImageClosure) {
@@ -74,17 +74,13 @@ class TSImageDownloader: NSObject {
                     }
                 }
                 dictionaryBlocks[imageView] = (url, completion, newOperation)
-                operationQueue.addOperation(newOperation)
+                queue.addOperation(newOperation)
             }
         }
     }
     
     internal func getImageFromCache(key : String) -> UIImage? {
-        if (self.cache.object(forKey: key as AnyObject) != nil) {
-            return self.cache.object(forKey: key as AnyObject) as? UIImage
-        } else {
-            return nil
-        }
+        return self.cache.object(forKey: key as AnyObject) as? UIImage
     }
     
     internal func saveImageToCache(key : String, image : UIImage) {
@@ -92,9 +88,9 @@ class TSImageDownloader: NSObject {
     }
     
     func checkOperationExists(with url: String,completion: @escaping (Result<UIImage>,_ url: String) -> Void) -> Bool {
-        if let arrayOperation = operationQueue.operations as? [TSImageDownloadOperation] {
-            let opeartions = arrayOperation.filter{$0.url == url}
-            return opeartions.count > 0 ? true : false
+        if let arrayOperation = queue.operations as? [TSImageDownloadOperation] {
+            let operations = arrayOperation.filter{$0.url == url}
+            return operations.count > 0 ? true : false
         }
         return false
     }

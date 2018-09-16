@@ -28,7 +28,7 @@
 		69AA81B0214A9A6000D82771 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69AA81AE214A9A6000D82771 /* LaunchScreen.storyboard */; };
 		69F48F09214BE4FD005C68A0 /* TSImageShowCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F48F08214BE4FD005C68A0 /* TSImageShowCaseViewController.swift */; };
 		69F48F0D214BE63D005C68A0 /* TSShowCaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F48F0C214BE63D005C68A0 /* TSShowCaseViewModel.swift */; };
-		69F48F10214C0371005C68A0 /* TSExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F48F0F214C0371005C68A0 /* TSExtensions.swift */; };
+		69F48F10214C0371005C68A0 /* TSCommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F48F0F214C0371005C68A0 /* TSCommonExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +55,7 @@
 		69AA81B1214A9A6100D82771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69F48F08214BE4FD005C68A0 /* TSImageShowCaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSImageShowCaseViewController.swift; sourceTree = "<group>"; };
 		69F48F0C214BE63D005C68A0 /* TSShowCaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSShowCaseViewModel.swift; sourceTree = "<group>"; };
-		69F48F0F214C0371005C68A0 /* TSExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSExtensions.swift; sourceTree = "<group>"; };
+		69F48F0F214C0371005C68A0 /* TSCommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCommonExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +83,22 @@
 				697705EB214AA78100B2519B /* TSImageDownloader.swift */,
 			);
 			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
+		0357A37C214E9C73005492C7 /* ImageToShowCaseAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				697705FC214AA85100B2519B /* TSImageToShowCaseAnimator.swift */,
+			);
+			path = ImageToShowCaseAnimator;
+			sourceTree = "<group>";
+		};
+		0357A37D214E9C91005492C7 /* CommonExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				69F48F0F214C0371005C68A0 /* TSCommonExtensions.swift */,
+			);
+			path = CommonExtensions;
 			sourceTree = "<group>";
 		};
 		697705E9214AA78100B2519B /* Networking */ = {
@@ -136,7 +152,7 @@
 		697705FA214AA85100B2519B /* Animations Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				697705FC214AA85100B2519B /* TSImageToShowCaseAnimator.swift */,
+				0357A37C214E9C73005492C7 /* ImageToShowCaseAnimator */,
 			);
 			path = "Animations Helpers";
 			sourceTree = "<group>";
@@ -318,7 +334,7 @@
 		69F48F0E214C0371005C68A0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				69F48F0F214C0371005C68A0 /* TSExtensions.swift */,
+				0357A37D214E9C91005492C7 /* CommonExtensions */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -333,6 +349,7 @@
 				69AA819E214A9A5F00D82771 /* Sources */,
 				69AA819F214A9A5F00D82771 /* Frameworks */,
 				69AA81A0214A9A5F00D82771 /* Resources */,
+				0357A37E214EA130005492C7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -390,6 +407,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0357A37E214EA130005492C7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:|WARNING:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"| perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		69AA819E214A9A5F00D82771 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -407,7 +440,7 @@
 				69770604214AA90500B2519B /* Reachability.swift in Sources */,
 				69F48F0D214BE63D005C68A0 /* TSShowCaseViewModel.swift in Sources */,
 				69770611214AA9A800B2519B /* TSHomeScreenViewController+Presentation.swift in Sources */,
-				69F48F10214C0371005C68A0 /* TSExtensions.swift in Sources */,
+				69F48F10214C0371005C68A0 /* TSCommonExtensions.swift in Sources */,
 				6977062B214AB79700B2519B /* TSSingleImageCollectionViewCell.swift in Sources */,
 				69F48F09214BE4FD005C68A0 /* TSImageShowCaseViewController.swift in Sources */,
 				697705F4214AA78100B2519B /* TSImageDownloader.swift in Sources */,

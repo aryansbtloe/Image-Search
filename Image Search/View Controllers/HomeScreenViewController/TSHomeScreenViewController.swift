@@ -62,6 +62,7 @@ class TSHomeScreenViewController: TSBaseViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.delegate = self
+        self.title = TSAppConstants.ViewControllers.HomeScreen.searchControllerNavigationTitle
     }
 
     internal func registerForNotifications(){
@@ -96,16 +97,16 @@ class TSHomeScreenViewController: TSBaseViewController {
     }
     
     @IBAction func optionDidTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "Images", message: "How many images to show in a row?", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "2", style: .default , handler:{ (UIAlertAction)in
+        let alert = UIAlertController(title: TSAppConstants.Alerts.HowManyImagesToShowInARow.title, message: TSAppConstants.Alerts.HowManyImagesToShowInARow.message, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Two", style: .default , handler:{ (UIAlertAction)in
             self.maximumImagesInARow = 2
             self.searchResultsCollectionView.reloadData()
         }))
-        alert.addAction(UIAlertAction(title: "3", style: .default , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Three", style: .default , handler:{ (UIAlertAction)in
             self.maximumImagesInARow = 3
             self.searchResultsCollectionView.reloadData()
         }))
-        alert.addAction(UIAlertAction(title: "4", style: .default , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Four", style: .default , handler:{ (UIAlertAction)in
             self.maximumImagesInARow = 4
             self.searchResultsCollectionView.reloadData()
         }))

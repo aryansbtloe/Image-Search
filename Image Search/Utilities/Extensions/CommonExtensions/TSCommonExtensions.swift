@@ -1,5 +1,5 @@
 //
-//  TSExtensions.swift
+//  TSCommonExtensions.swift
 //  Image Search
 //
 //  Created by Alok Singh on 13/09/18.
@@ -51,6 +51,7 @@ extension Dictionary {
 
 extension UIView {
     
+    /// <#Description#>
     func showActivityIndicator() {
         if let activityIndicator = self.viewWithTag(TSAppConstants.Tags.activityIndicatorViewTag) as? UIActivityIndicatorView {
             activityIndicator.startAnimating()
@@ -67,6 +68,7 @@ extension UIView {
         }
     }
     
+    /// <#Description#>
     func hideActivityIndicator() {
         self.viewWithTag(TSAppConstants.Tags.activityIndicatorViewTag)?.removeFromSuperview()
     }
