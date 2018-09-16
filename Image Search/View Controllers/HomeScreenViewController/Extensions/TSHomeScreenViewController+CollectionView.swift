@@ -36,7 +36,6 @@ extension TSHomeScreenViewController: UICollectionViewDataSource,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TSSingleImageCollectionViewCell", for: indexPath) as! TSSingleImageCollectionViewCell
-        cell.imageView.image = nil
         return cell
     }
     

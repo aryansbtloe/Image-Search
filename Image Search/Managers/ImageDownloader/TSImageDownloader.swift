@@ -103,6 +103,7 @@ class TSImageDownloader: NSObject {
 extension UIImageView {
     
     func setImage(with url: String){
+        self.showActivityIndicator()
         TSImageDownloader.shared.addOperation(url: url,imageView: self) {  [weak self] (result,downloadedImageURL) in
             DispatchQueue.main.async {
                 switch result {
@@ -113,6 +114,7 @@ extension UIImageView {
                 case .Error(_):
                     break
                 }
+                self?.hideActivityIndicator()
             }
         }
     }

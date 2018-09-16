@@ -84,6 +84,7 @@ enum TSAppConstants {
     enum Tags {
     
         static let showCaseViewTag = 123
-        
+        static let activityIndicatorViewTag = 123456
+
     }
 }

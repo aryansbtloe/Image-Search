@@ -69,11 +69,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0357A379214E67F9005492C7 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0357A37A214E6812005492C7 /* ImageDownloader */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0357A37A214E6812005492C7 /* ImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				697705EB214AA78100B2519B /* TSImageDownloader.swift */,
+			);
+			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
 		697705E9214AA78100B2519B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				697705EA214AA78100B2519B /* TSImageDownloadOperation.swift */,
-				697705EB214AA78100B2519B /* TSImageDownloader.swift */,
 				697705EC214AA78100B2519B /* TSServerCommunicationManager.swift */,
 			);
 			path = Networking;
@@ -262,6 +277,7 @@
 			children = (
 				69770616214AAFD500B2519B /* Constants */,
 				697705F9214AA85100B2519B /* Utilities */,
+				0357A379214E67F9005492C7 /* Managers */,
 				697705E9214AA78100B2519B /* Networking */,
 				69770624214AB79700B2519B /* Views */,
 				69770612214AAF4000B2519B /* Data Models */,

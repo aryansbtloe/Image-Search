@@ -57,11 +57,11 @@ class TSImageToShowCaseAnimator : NSObject, UIViewControllerAnimatedTransitionin
         
         let detailView = isPresenting ? toView : fromView
         
-        guard let artwork = detailView.viewWithTag(TSAppConstants.Tags.showCaseViewTag) as? UIImageView else { return }
-        artwork.image = image
-        artwork.alpha = 0
+        guard let imageView = detailView.viewWithTag(TSAppConstants.Tags.showCaseViewTag) as? UIImageView else { return }
+        imageView.image = image
+        imageView.alpha = 0
         
-        let transitionImageView = UIImageView(frame: isPresenting ? originFrame : artwork.frame)
+        let transitionImageView = UIImageView(frame: isPresenting ? originFrame : imageView.frame)
         transitionImageView.contentMode = .scaleAspectFill
         transitionImageView.image = image
         
@@ -72,13 +72,13 @@ class TSImageToShowCaseAnimator : NSObject, UIViewControllerAnimatedTransitionin
         toView.layoutIfNeeded()
         
         UIView.animate(withDuration: duration, animations: {
-            transitionImageView.frame = self.isPresenting ? artwork.frame : self.originFrame
+            transitionImageView.frame = self.isPresenting ? imageView.frame : self.originFrame
             detailView.frame = self.isPresenting ? fromView.frame : CGRect(x: toView.frame.width, y: 0, width: toView.frame.width, height: toView.frame.height)
             detailView.alpha = self.isPresenting ? 1 : 0
         }, completion: { (finished) in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             transitionImageView.removeFromSuperview()
-            artwork.alpha = 1
+            imageView.alpha = 1
         })
     }
     

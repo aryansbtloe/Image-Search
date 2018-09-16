@@ -36,15 +36,30 @@ class TSImageShowCaseViewController : TSBaseViewController {
     @IBOutlet weak var imageView: UIImageView!
     var viewModel: TSShowCaseViewModel!
     
-    override func viewDidLoad() {
+    
+    override internal func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = viewModel.model.title
+        startUpInitialisations()
+        setupForNavigationBar()
+        registerForNotifications()
+        updateUserInterfaceOnScreen()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+    internal func startUpInitialisations(){
+    }
+    
+    internal func setupForNavigationBar(){
+        self.navigationItem.title = viewModel.model.title
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+    }
+    
+    internal func registerForNotifications(){
+        
+    }
+    
+    internal func updateUserInterfaceOnScreen(){
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,11 +68,4 @@ class TSImageShowCaseViewController : TSBaseViewController {
             imageView.setImage(with:imageUrl)
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
-    }
-    
 }

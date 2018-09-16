@@ -48,3 +48,27 @@ extension Dictionary {
     }
     
 }
+
+extension UIView {
+    
+    func showActivityIndicator() {
+        if let activityIndicator = self.viewWithTag(TSAppConstants.Tags.activityIndicatorViewTag) as? UIActivityIndicatorView {
+            activityIndicator.startAnimating()
+        }else{
+            let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+            activityIndicatorView.tag = TSAppConstants.Tags.activityIndicatorViewTag
+            self.addSubview(activityIndicatorView)
+            let horizontalConstraint = NSLayoutConstraint(item: activityIndicatorView, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
+            let verticalConstraint = NSLayoutConstraint(item: activityIndicatorView, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
+            self.addConstraint(horizontalConstraint)
+            self.addConstraint(verticalConstraint)
+            activityIndicatorView.startAnimating()
+        }
+    }
+    
+    func hideActivityIndicator() {
+        self.viewWithTag(TSAppConstants.Tags.activityIndicatorViewTag)?.removeFromSuperview()
+    }
+    
+}
