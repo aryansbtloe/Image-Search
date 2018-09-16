@@ -28,7 +28,7 @@ An iOS Swift sample using MVVM to demonstrate Image Search and Loading in collec
 //
 //  For more information, please refer to <http://unlicense.org>
 
-## Flow Diagram
+## Class Diagram
 [![Image Search CFD](https://github.com/aryansbtloe/Image-Search/blob/master/ClassDiagram.png)](https://github.com/aryansbtloe/Image-Search/blob/master/ClassDiagram.png)
 
 
