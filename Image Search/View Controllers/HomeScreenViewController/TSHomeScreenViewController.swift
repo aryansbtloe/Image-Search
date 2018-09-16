@@ -95,8 +95,7 @@ class TSHomeScreenViewController: TSBaseViewController {
         }
     }
     
-    //MARK: @IBAction
-    @IBAction func optionTapped(_ sender: Any) {
+    @IBAction func optionDidTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Images", message: "How many images to show in a row?", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "2", style: .default , handler:{ (UIAlertAction)in
             self.maximumImagesInARow = 2
@@ -110,7 +109,7 @@ class TSHomeScreenViewController: TSBaseViewController {
             self.maximumImagesInARow = 4
             self.searchResultsCollectionView.reloadData()
         }))
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
         self.present(alert, animated: true, completion:nil)
     }
     
@@ -121,7 +120,6 @@ class TSHomeScreenViewController: TSBaseViewController {
             }
         }
     }
-    
 
 }
 

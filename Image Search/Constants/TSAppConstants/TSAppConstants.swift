@@ -61,7 +61,7 @@ enum TSAppConstants {
         
         enum Flicker {
 
-            static let apiKey = "a4f28588b57387edc18282228da39744"
+            static let apiKey = "81ccf620d4253ae470c626b22ad45ea9"
             static let imageURL = "https://farm%d.staticflickr.com/%@/%@_%@_%@.jpg"
             static let thumbnail = "t"
             static let medium = "c"
