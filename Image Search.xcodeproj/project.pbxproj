@@ -11,6 +11,7 @@
 		0357A383214EA783005492C7 /* ClassDiagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 0357A380214EA783005492C7 /* ClassDiagram.png */; };
 		0357A384214EA783005492C7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 0357A381214EA783005492C7 /* LICENSE */; };
 		0357A386214EA82B005492C7 /* ATTRIBUTIONS in Resources */ = {isa = PBXBuildFile; fileRef = 0357A385214EA82B005492C7 /* ATTRIBUTIONS */; };
+		69528D61214FDD9A00F0C893 /* TO DO.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 69528D60214FDD9A00F0C893 /* TO DO.rtf */; };
 		697705F3214AA78100B2519B /* TSImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697705EA214AA78100B2519B /* TSImageDownloadOperation.swift */; };
 		697705F4214AA78100B2519B /* TSImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697705EB214AA78100B2519B /* TSImageDownloader.swift */; };
 		697705F5214AA78100B2519B /* TSServerCommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697705EC214AA78100B2519B /* TSServerCommunicationManager.swift */; };
@@ -40,6 +41,7 @@
 		0357A380214EA783005492C7 /* ClassDiagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClassDiagram.png; sourceTree = "<group>"; };
 		0357A381214EA783005492C7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0357A385214EA82B005492C7 /* ATTRIBUTIONS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ATTRIBUTIONS; sourceTree = "<group>"; };
+		69528D60214FDD9A00F0C893 /* TO DO.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "TO DO.rtf"; sourceTree = "<group>"; };
 		697705EA214AA78100B2519B /* TSImageDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSImageDownloadOperation.swift; sourceTree = "<group>"; };
 		697705EB214AA78100B2519B /* TSImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSImageDownloader.swift; sourceTree = "<group>"; };
 		697705EC214AA78100B2519B /* TSServerCommunicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSServerCommunicationManager.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				0357A381214EA783005492C7 /* LICENSE */,
 				0357A37F214EA783005492C7 /* README.md */,
 				0357A380214EA783005492C7 /* ClassDiagram.png */,
+				69528D60214FDD9A00F0C893 /* TO DO.rtf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -418,6 +421,7 @@
 				0357A382214EA783005492C7 /* README.md in Resources */,
 				69AA81AD214A9A6000D82771 /* Assets.xcassets in Resources */,
 				69AA81AB214A9A5F00D82771 /* Main.storyboard in Resources */,
+				69528D61214FDD9A00F0C893 /* TO DO.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
