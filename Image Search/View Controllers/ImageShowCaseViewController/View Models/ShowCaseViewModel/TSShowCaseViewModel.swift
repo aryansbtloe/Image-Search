@@ -32,8 +32,15 @@
 
 import UIKit
 
+/// <#Description#>
 class TSShowCaseViewModel:NSObject {
+    
+    /// <#Description#>
     let model:TSImageModel
+    
+    /// <#Description#>
+    ///
+    /// - Parameter model: <#model description#>
     init(model:TSImageModel) {
         self.model = model
     }

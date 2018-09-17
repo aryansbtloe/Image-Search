@@ -33,8 +33,17 @@
 
 import UIKit
 
+// MARK: - <#UINavigationControllerDelegate#>
 extension TSHomeScreenViewController: UINavigationControllerDelegate{
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - navigationController: <#navigationController description#>
+    ///   - operation: <#operation description#>
+    ///   - fromVC: <#fromVC description#>
+    ///   - toVC: <#toVC description#>
+    /// - Returns: <#return value description#>
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         guard let frame = self.selectedFrame else { return nil }

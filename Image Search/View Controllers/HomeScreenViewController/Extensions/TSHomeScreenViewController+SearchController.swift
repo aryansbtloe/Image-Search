@@ -32,7 +32,13 @@
 
 import UIKit
 
-extension TSHomeScreenViewController: UISearchControllerDelegate,UISearchBarDelegate {    
+// MARK: - <#UISearchControllerDelegate,UISearchBarDelegate#>
+extension TSHomeScreenViewController: UISearchControllerDelegate,UISearchBarDelegate {
+    
+    
+    /// <#Description#>
+    ///
+    /// - Parameter searchBar: <#searchBar description#>
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, text.count > 1 else {
             return

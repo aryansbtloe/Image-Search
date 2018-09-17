@@ -31,12 +31,14 @@
 
 import UIKit
 
+/// <#Description#>
 class TSImageShowCaseViewController : TSBaseViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     var viewModel: TSShowCaseViewModel!
     
     
+    /// <#Description#>
     override internal func viewDidLoad() {
         super.viewDidLoad()
         startUpInitialisations()
@@ -45,23 +47,30 @@ class TSImageShowCaseViewController : TSBaseViewController {
         updateUserInterfaceOnScreen()
     }
     
+    /// <#Description#>
     internal func startUpInitialisations(){
     }
     
+    /// <#Description#>
     internal func setupForNavigationBar(){
         self.navigationItem.title = viewModel.model.title
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
     }
     
+    /// <#Description#>
     internal func registerForNotifications(){
         
     }
     
+    /// <#Description#>
     internal func updateUserInterfaceOnScreen(){
         
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter animated: <#animated description#>
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let imageUrl = viewModel.model.largeSizeimage {

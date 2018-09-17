@@ -32,15 +32,19 @@
 
 import UIKit
 
+/// <#Description#>
 class TSSingleImageCollectionViewCell: UICollectionViewCell {
     
+    /// <#Description#>
     @IBOutlet weak var imageView: UIImageView!
 
+    /// <#Description#>
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
     }
     
+    /// <#Description#>
     var imageModel:TSImageModel? {
         didSet {
             if let imageModel = imageModel {

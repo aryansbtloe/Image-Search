@@ -32,6 +32,7 @@
 
 import UIKit
 
+/// <#Description#>
 class TSImagesViewModel: NSObject {
     let manager: TSServerCommunicationManager
     private var pageNo = 1
@@ -40,17 +41,28 @@ class TSImagesViewModel: NSObject {
     private(set) var cache:NSCache<AnyObject, AnyObject> = NSCache()
     private var searchText = ""
     
+    /// <#Description#>
+    ///
+    /// - Parameter manager: <#manager description#>
     init(manager: TSServerCommunicationManager = TSServerCommunicationManager.shared) {
         self.manager = manager
         super.init()
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - text: <#text description#>
+    ///   - completion: <#completion description#>
     func searchText(text: String,completion:(@escaping (Bool,String) -> Void)) {
         searchText = text
         images.removeAll()
         fetchResult(completion: completion)
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter completion: <#completion description#>
     internal func fetchResult(completion:(@escaping (Bool,String) -> Void)) {
         let urlString = String(format: TSAppConstants.Networking.Flicker.searchURL,searchText,pageNo)
         guard let request = Request.init(requestMethod: RequestMethod.get, urlString: urlString) else {
@@ -79,6 +91,9 @@ class TSImagesViewModel: NSObject {
         }
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter completion: <#completion description#>
     func fetchNextPage(completion:(@escaping (Bool,String) -> Void)) {
         if pageNo < totalPageNo {
             pageNo += 1
@@ -88,6 +103,11 @@ class TSImagesViewModel: NSObject {
         }
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - dict: <#dict description#>
+    ///   - callback: <#callback description#>
     internal func parseData(dict: [String: Any], callback: @escaping (Bool) -> Void) {
         guard let photos = dict["photos"] as? [String: Any] else {
             callback(false)

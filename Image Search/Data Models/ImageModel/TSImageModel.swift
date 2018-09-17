@@ -32,6 +32,7 @@
 
 import UIKit
 
+/// <#Description#>
 struct TSImageModel {
     
     let id : String?

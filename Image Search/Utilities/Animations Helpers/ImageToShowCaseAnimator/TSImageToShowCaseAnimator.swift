@@ -33,6 +33,7 @@
 
 import UIKit
 
+/// <#Description#>
 class TSImageToShowCaseAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     
     var duration : TimeInterval
@@ -40,6 +41,13 @@ class TSImageToShowCaseAnimator : NSObject, UIViewControllerAnimatedTransitionin
     var originFrame : CGRect
     var image : UIImage
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - duration: <#duration description#>
+    ///   - isPresenting: <#isPresenting description#>
+    ///   - originFrame: <#originFrame description#>
+    ///   - image: <#image description#>
     init(duration : TimeInterval, isPresenting : Bool, originFrame : CGRect, image : UIImage) {
         self.duration = duration
         self.isPresenting = isPresenting
@@ -47,6 +55,9 @@ class TSImageToShowCaseAnimator : NSObject, UIViewControllerAnimatedTransitionin
         self.image = image
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter transitionContext: <#transitionContext description#>
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView
         
@@ -82,6 +93,10 @@ class TSImageToShowCaseAnimator : NSObject, UIViewControllerAnimatedTransitionin
         })
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter transitionContext: <#transitionContext description#>
+    /// - Returns: <#return value description#>
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }

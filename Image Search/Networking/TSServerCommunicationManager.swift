@@ -33,23 +33,39 @@
 
 import UIKit
 
+/// <#Description#>
+///
+/// - Success: <#Success description#>
+/// - Failure: <#Failure description#>
+/// - Error: <#Error description#>
 enum Result <T>{
     case Success(T)
     case Failure(String)
     case Error(String)
 }
 
+/// <#Description#>
+///
+/// - get: <#get description#>
+/// - post: <#post description#>
+/// - put: <#put description#>
 enum RequestMethod: String {
     case get    = "GET"
     case post   = "POST"
     case put    = "PUT"
 }
 
+/// <#Description#>
 class TSServerCommunicationManager: NSObject {
     static let shared = TSServerCommunicationManager()
     private override init() {
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - urlString: <#urlString description#>
+    ///   - completion: <#completion description#>
     func downloadImage(urlString: String,completion: @escaping (Result<UIImage>) -> Void) {
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
@@ -79,6 +95,11 @@ class TSServerCommunicationManager: NSObject {
         
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - request: <#request description#>
+    ///   - completion: <#completion description#>
     func executeRequest(request: Request,completion: @escaping (Result<[String: Any]>) -> Void) {
         
         guard (Reachability()?.currentReachabilityStatus != .notReachable) else {
@@ -121,8 +142,15 @@ class TSServerCommunicationManager: NSObject {
 }
 
 
+/// <#Description#>
 class Request : NSMutableURLRequest {
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - requestMethod: <#requestMethod description#>
+    ///   - urlString: <#urlString description#>
+    ///   - bodyParams: <#bodyParams description#>
     convenience init?(requestMethod:RequestMethod,urlString: String,
                       bodyParams: [String: Any]? = nil) {
         guard let url =  URL.init(string: urlString) else {

@@ -32,13 +32,26 @@
 
 import UIKit
 
+// MARK: - <#UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate#>
 extension TSHomeScreenViewController: UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate {
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - collectionView: <#collectionView description#>
+    ///   - indexPath: <#indexPath description#>
+    /// - Returns: <#return value description#>
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TSSingleImageCollectionViewCell", for: indexPath) as! TSSingleImageCollectionViewCell
         return cell
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - collectionView: <#collectionView description#>
+    ///   - cell: <#cell description#>
+    ///   - indexPath: <#indexPath description#>
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? TSSingleImageCollectionViewCell else {
             return
@@ -51,14 +64,32 @@ extension TSHomeScreenViewController: UICollectionViewDataSource,UICollectionVie
         }
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - collectionView: <#collectionView description#>
+    ///   - section: <#section description#>
+    /// - Returns: <#return value description#>
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imagesViewModel.images.count
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - collectionView: <#collectionView description#>
+    ///   - collectionViewLayout: <#collectionViewLayout description#>
+    ///   - indexPath: <#indexPath description#>
+    /// - Returns: <#return value description#>
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (collectionView.bounds.width)/CGFloat(maximumImagesInARow), height: (collectionView.bounds.width)/CGFloat(maximumImagesInARow))
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - collectionView: <#collectionView description#>
+    ///   - indexPath: <#indexPath description#>
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let theAttributes:UICollectionViewLayoutAttributes! = collectionView.layoutAttributesForItem(at: indexPath)
         selectedFrame = collectionView.convert(theAttributes.frame, to: collectionView.superview)
@@ -66,6 +97,9 @@ extension TSHomeScreenViewController: UICollectionViewDataSource,UICollectionVie
         perform(#selector(pushDetailView), with: indexPath, afterDelay: 0.1)
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameter indexPath: <#indexPath description#>
     @objc func pushDetailView(indexPath: IndexPath){
         
         guard let cell = searchResultsCollectionView.cellForItem(at: indexPath) as? TSSingleImageCollectionViewCell else {return}
